@@ -1,11 +1,6 @@
-﻿using UserService.Application.Interface;
-using MediatR;
-using System.Threading.Tasks;
-using System.Threading;
-
-namespace UserService.Application.CQRS.Command.PostDeletUser
+﻿namespace Interview.Tasks.Refactoring
 {
-    public class PostDeleteUserHandler : IRequestHandler<PostDeletUserCommanda, string>
+    public class PostDeleteUserHandler
     {
         private readonly IUserRepository _userRepository;
         private readonly IUserContext _userContext;
@@ -17,7 +12,7 @@ namespace UserService.Application.CQRS.Command.PostDeletUser
             _userContext = userContext;
         }
 
-        public async Task<string> Handle(PostDeletUserCommanda request, CancellationToken cancellationToken)
+        public async Task<string> Handle(PostDeletUserCommand request, CancellationToken cancellationToken)
         {
             var users = _userContext.user.FirstOrDefault();
             if (users != null)
