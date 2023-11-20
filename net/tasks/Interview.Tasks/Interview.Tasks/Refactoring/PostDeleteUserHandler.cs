@@ -1,6 +1,6 @@
 ﻿namespace Interview.Tasks.Refactoring
 {
-    public class PostDeleteUserHandler
+    public class PostDeleteUserHandler : CommandHandler<PostDeletUserCommand>
     {
         private readonly IUserRepository _userRepository;
         private readonly IUserContext _userContext;
